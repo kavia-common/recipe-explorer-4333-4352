@@ -32,16 +32,8 @@ fun RecipeCard(recipe: Recipe, onClick: (() -> Unit)? = null) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(120.dp),
-                contentScale = ContentScale.Crop,
-                error = {
-                    Box(
-                        Modifier
-                            .fillMaxSize()
-                            .height(120.dp), contentAlignment = Alignment.Center
-                    ) {
-                        Text("No Image", color = Color.Gray)
-                    }
-                }
+                contentScale = ContentScale.Crop
+                // error handling removed for compatibility; custom error Painter should be provided if needed
             )
             Column(modifier = Modifier.padding(12.dp)) {
                 Text(

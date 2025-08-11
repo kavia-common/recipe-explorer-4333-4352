@@ -3,8 +3,7 @@ package org.example.app.ui.screens
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.lazy.GridCells
+import androidx.compose.foundation.lazy.grid.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -24,12 +23,12 @@ fun HomeScreen(modifier: Modifier = Modifier) {
 @Composable
 fun RecipeGrid(recipes: List<Recipe>, modifier: Modifier = Modifier) {
     LazyVerticalGrid(
-        cells = GridCells.Adaptive(160.dp),
+        columns = GridCells.Adaptive(160.dp),
         contentPadding = PaddingValues(8.dp),
         modifier = modifier.fillMaxSize()
     ) {
-        items(recipes.size) { idx ->
-            RecipeCard(recipe = recipes[idx])
+        items(recipes) { recipe ->
+            RecipeCard(recipe = recipe)
         }
     }
 }
